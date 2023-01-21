@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct MovableComp  
+
+[System.Serializable]
+public struct MovableComponent  
 {
     public CharacterController CharacterController;
     public int Speed;
