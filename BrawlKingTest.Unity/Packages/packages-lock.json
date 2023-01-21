@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.leopotam.ecs": {
+      "version": "https://github.com/Leopotam/ecs.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "926b69ebb0f67c46958f62afedb18185a582c396"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.4",
       "depth": 0,
