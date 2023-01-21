@@ -8,5 +8,5 @@ public class DataProvider : MonoSinglethon<DataProvider>
 
     public GameObject Payer { get => _payer = Instantiate(_payer); set => _payer = value; }
 
-    public CharacterController CharacterController { get => _payer.GetComponent<CharacterController>(); }
+    public CharacterController CharacterController { get => GameObject.FindObjectOfType<CharacterController>(); }
 }

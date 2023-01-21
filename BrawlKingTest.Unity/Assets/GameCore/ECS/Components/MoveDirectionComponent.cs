@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public struct DirectionComponent
-{ 
+public struct MoveDirectionComponent
+{
     public Vector3 MoveDirection;
 }

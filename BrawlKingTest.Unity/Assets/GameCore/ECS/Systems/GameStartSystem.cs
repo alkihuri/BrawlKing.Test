@@ -9,11 +9,14 @@ public class GameStartSystem : IEcsInitSystem
     public void Init()
     {
         var player = _world.NewEntity();
-        var ojectData = player.Get<ObjectDataComponent>();
-        var movable = player.Get<MovableComponent>();
-        var direction = player.Get<DirectionComponent>();
+        ref var ojectData = ref player.Get<ObjectDataComponent>();
+        ref var movable = ref player.Get<MovableComponent>();
+        var direction = player.Get<MoveDirectionComponent>();
+        var rotation = player.Get<RotateDirectionComponent>();
 
-        ojectData.Player = DataProvider.Instance.Payer; 
+
+
+        ojectData.Player = DataProvider.Instance.Payer;
         movable.CharacterController = DataProvider.Instance.CharacterController;
     }
 }

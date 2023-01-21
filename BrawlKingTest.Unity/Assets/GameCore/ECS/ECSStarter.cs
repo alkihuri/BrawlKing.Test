@@ -25,9 +25,9 @@ public class ECSStarter : MonoBehaviour
 
     private void EventSettings()
     {
-        OnEcsStart.AddListener(EcsStart); 
-        OnEcsStop.AddListener(EcsDestroy);
+        OnEcsStart.AddListener(EcsStart);
         OnEcsOn.AddListener(EcsOn);
+        OnEcsStop.AddListener(EcsDestroy);
     }
     private void EcsStart()
     {
@@ -37,14 +37,16 @@ public class ECSStarter : MonoBehaviour
         _systems
              .Add(new GameStartSystem())
              .Add(new InputSystem())
-             .Add(new MovementSystem());
+             .Add(new MovementSystem())
+             .Add(new RotateSystem())
+             ;
         _systems.Init();
     } 
 
     
     private void EcsOn()
     {  
-            _systems.Run();
+        _systems.Run();
     }
 
 
