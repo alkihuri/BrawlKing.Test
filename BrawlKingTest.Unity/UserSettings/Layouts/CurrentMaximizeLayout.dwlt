@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 4294
+  controlID: 7287
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -674,21 +674,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/GameCore/GameEntities/Npc/Scripts
+    - Assets/GameCore/GameEntities/Npc/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/GameCore/GameEntities/Npc/Scripts
+  - Assets/GameCore/GameEntities/Npc/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\alkih\Documents\GitHub\BrawlKing.Test\BrawlKingTest.Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 98610000
-    m_LastClickedID: 24984
+    m_SelectedIDs: 94610000
+    m_LastClickedID: 24980
     m_ExpandedIDs: 00000000165900001a59000044590000b05b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -742,9 +742,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9c610000
-    m_LastClickedInstanceID: 24988
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

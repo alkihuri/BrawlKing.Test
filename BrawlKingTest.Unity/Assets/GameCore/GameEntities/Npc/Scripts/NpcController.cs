@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,22 +13,35 @@ public class NpcController : MonoBehaviour
     public GameObject Target { get => _target; set => _target = value; }
 
 
-    public void NpcInnit(GameObject target)
+    public void NpcAiInnit(GameObject target)
     {
         Navigation = GetComponent<NavMeshAgent>();
         Target = target;
         StartCoroutine(FollowTarget());
     }
 
-    
 
-     
-     IEnumerator FollowTarget()
+    private void OnTriggerEnter(Collider other)
     {
-        while(true)
+        var eteredStuff = other.gameObject;
+
+        if (eteredStuff.GetComponent<BulletController>())
+            transform.position = new Vector3(Random.Range(-150, 150), 2, Random.Range(-150, 150));
+    }
+
+    private IEnumerator FollowTarget()
+    {
+        while (true)
         {
             Navigation.SetDestination(Target.transform.position);
             yield return new WaitForSeconds(2f);
         }
-    } 
+    }
+
+    internal void NpcTypeInnit(INpcType type)
+    {
+        Navigation.speed = type.Speed;
+
+        GetComponentInChildren<Renderer>().material.color = type.Color;
+    }
 }
