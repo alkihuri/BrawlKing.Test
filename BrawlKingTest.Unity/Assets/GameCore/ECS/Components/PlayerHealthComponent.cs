@@ -5,17 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public struct PlayerHealthComponent : IHealthComponent
 {
-    public int Healt;
+    public int Health;
+    public int Armor;
 
 
     public void TakeDamage(int value)
     {
-        Healt -= value;
-        Healt = Mathf.Clamp(Healt, 0, 100);
+        Health -= value * Armor;
+        Health = Mathf.Clamp(Health, 0, 100);
     }
 
     public void TakeHeal(int value)
     {
-        TakeDamage(-value);
+        TakeDamage(-value / Armor);
     }
 }
