@@ -6,7 +6,7 @@ using Leopotam.Ecs;
 public class InputSystem : IEcsRunSystem
 {
     private readonly EcsWorld _world = null;
-    private readonly EcsFilter<MoveDirectionComponent,RotateDirectionComponent,GunComponent> _inputHandlerFilter = null;
+    private readonly EcsFilter<MoveDirectionComponent, RotateDirectionComponent, GunComponent> _inputHandlerFilter = null;
 
     private float _vertical;
     private float _horizontal;
@@ -31,11 +31,11 @@ public class InputSystem : IEcsRunSystem
             ref var rotation = ref _inputHandlerFilter.Get2(i);
             ref var gun = ref _inputHandlerFilter.Get3(i);
 
-            direction.MoveDirection.x = Vertical;
-            direction.MoveDirection.z = Horizontal;
-             
-            rotation.RotateDirection.x = MouseX;
-            rotation.RotateDirection.z = MouseY;
+            direction.MoveDirection.x = Horizontal;
+            direction.MoveDirection.z = Vertical;
+
+            //rotation.RotateDirection.y = MouseX;
+            //rotation.RotateDirection.z = MouseY;
 
             gun.IsShoot = IsShoot;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public struct ObjectDataComponent
+public struct PlayerDataComponent
 {
     public GameObject Player; 
 }

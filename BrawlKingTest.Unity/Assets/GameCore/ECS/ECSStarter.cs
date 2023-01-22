@@ -38,9 +38,10 @@ public class ECSStarter : MonoBehaviour
              .Add(new GameStartSystem())
              .Add(new InputSystem())
              .Add(new PlayerMovementSystem())
-             .Add(new RotateSystem())
+             .Add(new PlayerRotateSystem())
              .Add(new PlayerShootingSystem())
-             .Add(new PlayerHealthSystem())
+             .Add(new PlayerHealthSystem()) 
+             .Add(new NpcGenerationSystem())
              ;
         _systems.Init();
     } 
