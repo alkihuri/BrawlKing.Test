@@ -6,7 +6,7 @@ using Leopotam.Ecs;
 public class InputSystem : IEcsRunSystem
 {
     private readonly EcsWorld _world = null;
-    private readonly EcsFilter<MoveDirectionComponent,RotateDirectionComponent> _inputHandlerFilter = null;
+    private readonly EcsFilter<MoveDirectionComponent,RotateDirectionComponent,GunComponent> _inputHandlerFilter = null;
 
     private float _vertical;
     private float _horizontal;
@@ -14,10 +14,13 @@ public class InputSystem : IEcsRunSystem
     private float _mouseX;
     private float _mouseY;
 
+    private bool _isShoot;
+
     public float Vertical { get => _vertical; set => _vertical = value; }
     public float Horizontal { get => _horizontal; set => _horizontal = value; }
     public float MouseX { get => _mouseX; set => _mouseX = value; }
     public float MouseY { get => _mouseY; set => _mouseY = value; }
+    public bool IsShoot { get => _isShoot; set => _isShoot = value; }
 
     public void Run()
     {
@@ -26,12 +29,16 @@ public class InputSystem : IEcsRunSystem
         {
             ref var direction = ref _inputHandlerFilter.Get1(i);
             ref var rotation = ref _inputHandlerFilter.Get2(i);
+            ref var gun = ref _inputHandlerFilter.Get3(i);
 
             direction.MoveDirection.x = Vertical;
             direction.MoveDirection.z = Horizontal;
              
             rotation.RotateDirection.x = MouseX;
             rotation.RotateDirection.z = MouseY;
+
+            gun.IsShoot = IsShoot;
+
         }
     }
 
@@ -41,5 +48,6 @@ public class InputSystem : IEcsRunSystem
         Horizontal = Input.GetAxis("Horizontal");
         MouseX = Input.GetAxis("Mouse X");
         MouseY = Input.GetAxis("Mouse Y");
+        IsShoot = Input.GetMouseButton(0);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-public class MovementSystem : IEcsRunSystem
+public class PlayerMovementSystem : IEcsRunSystem
 {
     private readonly EcsWorld _world = null;
     private readonly EcsFilter<MovableComponent, MoveDirectionComponent> moveFilter = null;

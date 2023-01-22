@@ -13,6 +13,8 @@ public class GameStartSystem : IEcsInitSystem
         ref var movable = ref player.Get<MovableComponent>();
         var direction = player.Get<MoveDirectionComponent>();
         var rotation = player.Get<RotateDirectionComponent>();
+        var shooting = player.Get<GunComponent>();
+        var health = player.Get<PlayerHealthComponent>();
 
 
 
