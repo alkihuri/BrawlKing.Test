@@ -9,7 +9,7 @@ public class GameStartSystem : IEcsInitSystem
     EcsWorld _world = null;
     public void Init()
     {
-        PlayerEntityInnit();
+        PlayerEntityInnit(); 
         NpcEntityInnit();
     }
 

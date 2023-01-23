@@ -1,9 +1,10 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
-public class PlayerHealthSystem : IEcsInitSystem, IEcsRunSystem
+public class NpcHealthSystem : IEcsInitSystem, IEcsRunSystem
 {
     private readonly EcsWorld _world = null;
-    private readonly EcsFilter<PlayerHealthComponent> _healthFilter = null;
+    private readonly EcsFilter<NpcHealthComponent> _healthFilter = null;
 
     public void Init()
     {
@@ -20,9 +21,11 @@ public class PlayerHealthSystem : IEcsInitSystem, IEcsRunSystem
         foreach (var i in _healthFilter)
         {
             ref var health = ref _healthFilter.Get1(i);
-            if(health.Health<100)
+            Debug.Log(health.Health);
+            if (health.Health < 1)
             {
-                ///Die!;
+                health.Health = 100;
+                
             }
         }
     }

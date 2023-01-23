@@ -22,22 +22,7 @@ public class NpcController : MonoBehaviour
         StartCoroutine(FollowTarget());
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        var eteredStuff = other.gameObject;
-        if (eteredStuff.GetComponent<BulletController>())
-        {
-            var bullet = eteredStuff.GetComponent<BulletController>();
-
-            transform.DOShakeScale(1);
-            Health -= bullet.Gun.Damage;
-
-            if(Health < 1)
-                Respawn();
-        }
-    }
-    */
+     
 
     private void Respawn()
     {
@@ -58,10 +43,8 @@ public class NpcController : MonoBehaviour
     internal void NpcTypeInnit(INpcType type)
     {
         _thisType = type;
-        Navigation.speed = type.Speed;
-
-        Health = type.Health;
-
+        Navigation.speed = type.Speed; 
+        Health = type.Health; 
         GetComponentInChildren<Renderer>().material.color = type.Color;
     }
 }

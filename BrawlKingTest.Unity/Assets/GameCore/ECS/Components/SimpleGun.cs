@@ -25,6 +25,7 @@ public class SimpleGun : IGun
         _damage = 50;
         _rate = 3;
         _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        _bullet.tag = "Player";
         _bullet.AddComponent<CollisionHandler>();
         _bullet.SetActive(false);
         _bulletController = _bullet.AddComponent<BulletController>();
