@@ -32,7 +32,7 @@ public class ECSStarter : MonoBehaviour
     private void EcsStart()
     {
         _world = new EcsWorld();
-        _systems = new EcsSystems(_world);  
+        _systems = new EcsSystems(_world);
 
         _systems
              .Add(new GameStartSystem())
@@ -40,8 +40,9 @@ public class ECSStarter : MonoBehaviour
              .Add(new PlayerMovementSystem())
              .Add(new PlayerRotateSystem())
              .Add(new PlayerShootingSystem())
-             .Add(new PlayerHealthSystem()) 
+             .Add(new PlayerHealthSystem())
              .Add(new NpcGenerationSystem())
+             .Add(new UISystem());
              ;
         _systems.Init();
     } 
