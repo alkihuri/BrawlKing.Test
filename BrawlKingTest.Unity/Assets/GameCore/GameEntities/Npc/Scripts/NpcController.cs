@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class NpcController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class NpcController : MonoBehaviour
 
     public NavMeshAgent Navigation { get => _navigation; set => _navigation = value; }
     public GameObject Target { get => _target; set => _target = value; }
-
+    public float Health { get; private set; }
 
     public void NpcAiInnit(GameObject target)
     {
@@ -24,9 +25,22 @@ public class NpcController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var eteredStuff = other.gameObject;
-
+        transform.DOShakeScale(1);
         if (eteredStuff.GetComponent<BulletController>())
-            transform.position = new Vector3(Random.Range(-150, 150), 2, Random.Range(-150, 150));
+        {
+            var bullet = eteredStuff.GetComponent<BulletController>();
+
+
+
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+
+        transform.position = new Vector3(Random.Range(-150, 150), 2, Random.Range(-150, 150));
+        transform.DOShakeScale(2);
     }
 
     private IEnumerator FollowTarget()
@@ -41,6 +55,8 @@ public class NpcController : MonoBehaviour
     internal void NpcTypeInnit(INpcType type)
     {
         Navigation.speed = type.Speed;
+
+        Health = type.Health;
 
         GetComponentInChildren<Renderer>().material.color = type.Color;
     }

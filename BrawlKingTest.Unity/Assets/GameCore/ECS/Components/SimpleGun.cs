@@ -27,6 +27,7 @@ public class SimpleGun : IGun
         _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _bullet.SetActive(false);
         _bulletController = _bullet.AddComponent<BulletController>();
+        _bulletController.InnitBulet(this);
         _bulletPhysic = _bullet.AddComponent<Rigidbody>();
         _bulletPhysic.useGravity = false;
         _collider = _bullet.GetComponent<Collider>();
