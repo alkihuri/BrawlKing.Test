@@ -1,3 +1,4 @@
+using Leopotam.Ecs;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,5 @@ public class DataProvider : MonoSinglethon<DataProvider>
 
     public CharacterController PlayerCharacterController { get => _payer.GetComponent<CharacterController>(); }
     public NavMeshAgent NpcNavigation { get => _npc.GetComponent<NavMeshAgent>(); }
-
-
+    public EcsWorld EcsWorld { get; set; }
 }

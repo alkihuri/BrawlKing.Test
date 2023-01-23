@@ -18,7 +18,8 @@ public class GameStartSystem : IEcsInitSystem
         var npc = _world.NewEntity();
         ref var npcData = ref npc.Get<NpcDataComponent>();
         ref var npcNavigation = ref npc.Get<AiMovableComponent>();
-        ref var npcPool = ref npc.Get<NpcPoolDataComponent>();
+        ref var npcPool = ref npc.Get<NpcPoolDataComponent>(); 
+        var npcCollission = npc.Get<CollistionComponent>();
 
         npcPool.MaxNpc = 100;
         npcData.Npc = DataProvider.Instance.NpcGameObject;
@@ -37,6 +38,7 @@ public class GameStartSystem : IEcsInitSystem
         var rotation = player.Get<RotateDirectionComponent>();
         var shooting = player.Get<GunComponent>();
         var health = player.Get<PlayerHealthComponent>();
+        var playerCollision = player.Get<CollistionComponent>();
 
 
 

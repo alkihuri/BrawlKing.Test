@@ -57,6 +57,7 @@ public class NpcGenerationSystem : IEcsInitSystem, IEcsRunSystem
 
         var newNpc = GameObject.Instantiate(npc);
         newNpc.transform.position = new Vector3(Random.Range(-150, 150), 2, Random.Range(-150, 150));
+        newNpc.AddComponent<CollisionHandler>(); /// for Ecs collisions :) 
         var npcController = newNpc.AddComponent<NpcController>();
         npcController.NpcAiInnit(Target);
         

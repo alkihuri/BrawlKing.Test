@@ -22,7 +22,7 @@ public class NpcController : MonoBehaviour
         StartCoroutine(FollowTarget());
     }
 
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         var eteredStuff = other.gameObject;
@@ -37,6 +37,7 @@ public class NpcController : MonoBehaviour
                 Respawn();
         }
     }
+    */
 
     private void Respawn()
     {

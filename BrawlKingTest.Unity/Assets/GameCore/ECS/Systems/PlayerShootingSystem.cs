@@ -5,7 +5,7 @@ using DG.Tweening;
 public class PlayerShootingSystem : IEcsInitSystem, IEcsRunSystem
 {
     private readonly EcsWorld _world = null;
-    private readonly EcsFilter<GunComponent,PlayerDataComponent> _shootFilter = null;
+    private readonly EcsFilter<GunComponent, PlayerDataComponent> _shootFilter = null;
 
 
     public void Init()
@@ -30,5 +30,5 @@ public class PlayerShootingSystem : IEcsInitSystem, IEcsRunSystem
                 holder.Player.transform.DOShakeScale(0.1f);
             }
         }
-    } 
+    }
 }

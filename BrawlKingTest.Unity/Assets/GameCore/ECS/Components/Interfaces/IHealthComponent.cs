@@ -1,6 +1,5 @@
 ﻿interface IHealthComponent
 {
-    void TakeDamage(int value);
-    void TakeHeal(int value);
-
+    void TakeDamage(float value);
+    void TakeHeal(float value); 
 }
