@@ -22,7 +22,7 @@ public class SimpleGun : IGun
     public SimpleGun()
     {
         /// cashing 
-        _damage = 1;
+        _damage = 50;
         _rate = 3;
         _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _bullet.SetActive(false);
@@ -46,10 +46,10 @@ public class SimpleGun : IGun
     {
 
         if (!IsReady)
-            return; 
+            return;
 
-        var reloader = Reloader(); 
-        while(reloader.MoveNext()) Reloading = true; 
+        var reloader = Reloader();
+        while (reloader.MoveNext()) Reloading = true;
 
         Reloading = false;
 
@@ -62,7 +62,7 @@ public class SimpleGun : IGun
 
         _bulletPhysic.velocity = Vector3.zero;
 
-        _bulletPhysic.AddForce(shootDirection * Damage * 100, ForceMode.Impulse);
+        _bulletPhysic.AddForce(shootDirection * Damage, ForceMode.Impulse);
     }
 
 

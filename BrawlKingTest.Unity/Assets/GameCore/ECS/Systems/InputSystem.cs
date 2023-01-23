@@ -48,6 +48,6 @@ public class InputSystem : IEcsRunSystem
         Horizontal = Input.GetAxis("Horizontal");
         MouseX = Input.GetAxis("Mouse X");
         MouseY = Input.GetAxis("Mouse Y");
-        IsShoot = Input.GetMouseButton(0);
+        IsShoot = Input.GetMouseButtonDown(0);
     }
 }

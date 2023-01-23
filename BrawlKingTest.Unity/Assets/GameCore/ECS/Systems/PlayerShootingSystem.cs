@@ -1,5 +1,6 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerShootingSystem : IEcsInitSystem, IEcsRunSystem
 {
@@ -21,10 +22,12 @@ public class PlayerShootingSystem : IEcsInitSystem, IEcsRunSystem
     {
         foreach (var i in _shootFilter)
         {
-            ref var gunComponent = ref _shootFilter.Get1(i); 
+            ref var gunComponent = ref _shootFilter.Get1(i);
+            ref var holder = ref _shootFilter.Get2(i);
             if (gunComponent.IsShoot)
             {
                 gunComponent.gun.DoAttack();
+                holder.Player.transform.DOShakeScale(0.1f);
             }
         }
     } 

@@ -9,6 +9,7 @@ public class NpcController : MonoBehaviour
 
     [SerializeField] NavMeshAgent _navigation;
     [SerializeField] GameObject _target;
+    private INpcType _thisType;
 
     public NavMeshAgent Navigation { get => _navigation; set => _navigation = value; }
     public GameObject Target { get => _target; set => _target = value; }
@@ -25,20 +26,21 @@ public class NpcController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var eteredStuff = other.gameObject;
-        transform.DOShakeScale(1);
         if (eteredStuff.GetComponent<BulletController>())
         {
             var bullet = eteredStuff.GetComponent<BulletController>();
 
+            transform.DOShakeScale(1);
+            Health -= bullet.Gun.Damage;
 
-
-            Respawn();
+            if(Health < 1)
+                Respawn();
         }
     }
 
     private void Respawn()
     {
-
+        Health = _thisType.Health;
         transform.position = new Vector3(Random.Range(-150, 150), 2, Random.Range(-150, 150));
         transform.DOShakeScale(2);
     }
@@ -54,6 +56,7 @@ public class NpcController : MonoBehaviour
 
     internal void NpcTypeInnit(INpcType type)
     {
+        _thisType = type;
         Navigation.speed = type.Speed;
 
         Health = type.Health;
